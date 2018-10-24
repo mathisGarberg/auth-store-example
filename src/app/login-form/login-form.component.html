@@ -1,0 +1,27 @@
+<div class="custom-container">
+  <div class="loginCard">
+    <h2 class="heading">{{ title }}</h2>
+      <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+        <input 
+          type="email" 
+          name="email" 
+          class="formInput"
+          formControlName="username" />
+        <input type="password" 
+          name="password" 
+          class="formInput"
+          formControlName="password" />
+        <button class="btn" 
+                id="btn-login"
+                [disabled]="loginForm.invalid"
+                type="submit">
+                <span [hidden]="isLoading">{{ title }}</span>
+                <fa-icon [hidden]="!isLoading" [icon]="faGhost" size="2x" [spin]="true"></fa-icon>
+        </button>
+      </form>
+      
+      <div class="dangerContainer" *ngIf="errorMsg">
+        <p class="danger">{{ errorMsg }}</p>
+      </div>
+  </div>
+</div>

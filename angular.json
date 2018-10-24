@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "auth-store-example"
+  "defaultProject": "auth-store-example",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
