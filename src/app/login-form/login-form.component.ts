@@ -34,7 +34,6 @@ export class LoginFormComponent implements OnInit {
     this.createForm();
 
     this.authState.subscribe(res => {
-      console.log(res);
       this.isLoading = res.isLoading;
       this.errorMsg = res.error;
     });
@@ -45,7 +44,7 @@ export class LoginFormComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required],
       remember: true
-    })
+    });
   }
 
   login() {
