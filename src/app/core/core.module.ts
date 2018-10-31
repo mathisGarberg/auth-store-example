@@ -21,4 +21,4 @@ import { AuthTokenService } from './services/auth-token.service';
     AuthTokenService
   ]
 })
-export class CoreModule { }
+export class CoreModule {}

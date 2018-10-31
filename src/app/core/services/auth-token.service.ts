@@ -16,7 +16,6 @@ export interface Credentials {
 
 @Injectable()
 export class AuthTokenService {
-  token$ = new BehaviorSubject(null);
   _credentials: Credentials | null;
 
   constructor(private store: Store<AuthState>) {}

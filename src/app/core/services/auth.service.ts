@@ -13,14 +13,13 @@ const defaultUser = {
   username: 'Mathis',
   password: '12345',
   token: '12345'
-}
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor() { }
+  constructor() {}
 
   login(loginContext: ILoginContext): Observable<User> {
     if (
