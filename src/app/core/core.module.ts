@@ -1,6 +1,5 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -8,8 +7,7 @@ import { reducers } from './store/index';
 import { AuthEffects } from './store/auth';
 
 import { AuthGuard } from './services/auth.guard';
-import { AuthTokenFactory, AuthTokenService } from './services/auth-token.service';
-import { TokenInterceptor } from './services/token.interceptor';
+import { AuthTokenService } from './services/auth-token.service';
 
 @NgModule({
   imports: [
@@ -20,18 +18,7 @@ import { TokenInterceptor } from './services/token.interceptor';
   declarations: [],
   providers: [
     AuthGuard,
-    AuthTokenService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: AuthTokenFactory,
-      deps: [AuthTokenService],
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
+    AuthTokenService
   ]
 })
 export class CoreModule { }
